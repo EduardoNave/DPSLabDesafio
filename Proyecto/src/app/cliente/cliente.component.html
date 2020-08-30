@@ -1,1 +1,76 @@
-<p>cliente works!</p>
+<div [hidden]="facturar">
+    <h2>Registro de visita veterinaria</h2>
+    <form (ngSubmit)="onSubmit()" #clienteform="ngForm">
+        <div class="form-group">
+            <label for="dui">DUI</label>
+            <input type="text" class="form-control" id="dui" required [(ngModel)]="Cliente.dui" name="dui"
+                #name="ngModel">
+            <div [hidden]="name.valid || name.pristine">
+                Número de DUI es requerido
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="nombres">Nombres</label>
+            <input type="text" class="form-control" id="nombres" required [(ngModel)]="cliente.nombres" name="nombres"
+                #name="ngModel">
+            <div [hidden]="name.valid || name.pristine">
+                Nombres son requeridos
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="apellidos">Apellidos</label>
+            <input type="text" class="form-control" id="apellidos" required [(ngModel)]="cliente.apellidos" name="apellidos"
+                #name="ngModel">
+            <div [hidden]="name.valid || name.pristine">
+                Apellidos son requeridos
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="nombreMascota">Nombre de la mascota</label>
+            <input type="text" class="form-control" id="nombreMascota" required [(ngModel)]="cliente.nombreMascota" name="nombreMascota"
+                #name="ngModel">
+            <div [hidden]="name.valid || name.pristine">
+                Nombre de la mascota son requeridos
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="tratamiento">Tratamiento aplicado</label>
+            <input type="text" class="form-control" id="tratamiento" required [(ngModel)]="cliente.tratamiento" name="tratamiento"
+                #name="ngModel">
+            <div [hidden]="name.valid || name.pristine">
+                Descriptción del tratamiento requerido
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="medicamentos">Medicamentos</label>
+            <input type="text" class="form-control" id="medicamentos" required [(ngModel)]="cliente.medicamentos" name="medicamentos"
+                #name="ngModel">
+            <div [hidden]="name.valid || name.pristine">
+                Medicamentos son requeridos
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="costo">Nombres</label>
+            <input type="text" class="form-control" id="costo" name="costo">
+        </div>
+        <div class="form-group">
+            <label for="visitas">Visitas</label>
+            <input type="text" class="form-control" id="visitas" [(ngModel)]="cliente.visitas" name="visitas">
+        </div>
+        <button type="submit" class="btn btn-success" [disabled]="!clienteform.form.valid">Submit</button>
+    </form>
+</div>
+<div [hidden]="!facturar">
+    <h2>Facturación Cliente</h2>
+    <hr>
+    <div><span class="badge badge-info">dui</span> -> {{cliente.dui}}</div>
+    <div><span class="badge badge-info">Nombres</span> -> {{cliente.nombres}}</div>
+    <div><span class="badge badge-info">Apellidos</span> -> {{cliente.Apellidos}}</div>
+    <div><span class="badge badge-info">nombreMascota</span> -> {{cliente.nombreMascota}}</div>
+    <div><span class="badge badge-info">tratamiento</span> -> {{cliente.tratamiento}}</div>
+    <div><span class="badge badge-info">medicamentos</span> -> {{cliente.medicamentos}}</div>
+    <div><span class="badge badge-info">costo</span> -> {{cliente.costo}}</div>
+    <div><span class="badge badge-info">visitas</span> -> {{cliente.visitas}}</div>
+    <br>
+    <button class="btn btn-primary" (click)="facturar=false">Edit</button>
+</div>
