@@ -7,15 +7,16 @@ import { Cliente } from '../cliente';
   styleUrls: ['./cliente.component.css']
 })
 export class ClienteComponent implements OnInit {
-  Cliente = new Cliente('', '', '', '', '', '', 0, 0);
+  Cliente = new Cliente('', '', '', '', '', '',0, 0);
   registrar = false;
   visitas = 0;
   constructor() {}
 
   ngOnInit(): void {}
 
-  onSubmit( ) {
+  onSubmit() {
     this.visitas++;
     this.registrar = true;
   }
+  
 }
