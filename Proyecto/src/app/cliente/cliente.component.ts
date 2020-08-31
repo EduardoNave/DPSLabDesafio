@@ -7,25 +7,15 @@ import { Cliente } from '../cliente';
   styleUrls: ['./cliente.component.css']
 })
 export class ClienteComponent implements OnInit {
-  nacionalidad = ['', 'El Salvador', 'México', 'Rusia', 'Mongolia'];
-  Cliente = new Cliente(
-    '1',
-    'Andres',
-    'Chapeton',
-    'Mascota1',
-    'Tratamiento1',
-    'Medicamento1',
-    100,
-    2
-  );
-  facturar = false;
+  Cliente = new Cliente('', '', '', '', '', '', 0, 0);
+  registrar = false;
   visitas = 0;
   constructor() {}
 
   ngOnInit(): void {}
 
-  onSubmit() {
+  onSubmit( ) {
     this.visitas++;
-    this.facturar = true;
+    this.registrar = true;
   }
 }
